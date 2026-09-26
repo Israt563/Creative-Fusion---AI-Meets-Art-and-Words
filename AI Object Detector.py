@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-# Object Detection (concise, correct Content-Type). Requires: pillow, requests, config.py (HF_API_KEY).
+# Object Detection (concise, correct Content-Type). Requires: pillow, requests.
 import os, io, time, random, requests, mimetypes
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
-from config import HF_API_KEY
+
+# ==========================================
+# PASTE YOUR HUGGING FACE API KEY HERE:
+HF_API_KEY = "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"
+# ==========================================
 
 MODEL = "facebook/detr-resnet-101"
-API = "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"
+API = f"https://router.huggingface.co/hf-inference/models/{MODEL}"
 ALLOWED, MAX_MB = {".jpg",".jpeg",".png",".bmp",".gif",".webp",".tiff"}, 8
 EMOJI = {"person":"🧍","car":"🚗","truck":"🚚","bus":"🚌","bicycle":"🚲","motorcycle":"🏍️","dog":"🐶","cat":"🐱",
          "bird":"🐦","horse":"🐴","sheep":"🐑","cow":"🐮","bear":"🐻","giraffe":"🦒","zebra":"🦓","banana":"🍌",
